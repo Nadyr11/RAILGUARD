@@ -4,13 +4,13 @@ from scipy.stats import kurtosis, skew
 from scipy.signal import welch, stft
 
 MW, MB, KS, CS, KH, R = 0.7, 2.0, 2e6, 5000, 1.5e8, 0.060
-G = 9.81  # m/s^2; used only to locate the static-equilibrium operating point (see below)
+G = 9.81  
 FS = 10000
-T = 0.6  # analysis window length
+T = 0.6  
 
 def simulate_wheel_flat(flat_length_mm, speed_mps, noise_lvl, mw, mb, ks, cs, kh, R=R, T=T, fs=FS, g=G):
     """
-    2-DOF wheel-bogie model with a genuine unilateral Hertzian contact law,
+    2-DOF wheel-bogie model with a unilateral Hertzian contact law,
     Fc = kh * max(delta, 0)^1.5, where the contact deflection
         delta(t) = delta_static - uw(t) - p(theta(t))
     is driven by (a) the wheel's own dynamic displacement uw(t) and (b) a
@@ -26,12 +26,11 @@ def simulate_wheel_flat(flat_length_mm, speed_mps, noise_lvl, mw, mb, ks, cs, kh
     (found by solving Fc(delta_static) = (mw+mb)*g for delta_static). This
     substitution removes the m*g terms from the equations of motion below
     algebraically (they cancel against the equilibrium condition), so
-    gravity does not appear explicitly, but -- unlike the previous version
+    gravity does not appear explicitly, but unlike the previous version
     of this model -- the simulation genuinely starts at static equilibrium:
     the flat is placed at theta=pi so it is away from the contact point at
     t=0 (theta=0), giving delta(0)=delta_static, Fc(0)=Fc_eq, and zero net
-    force on both masses at the start. No artificial transient is
-    simulated or discarded; there is nothing to discard.
+    force on both masses at the start.
     """
     L = flat_length_mm / 1000.0
     alpha_h = np.arcsin(min(L / (2 * R), 0.999)) if L > 0 else 0.0
@@ -84,37 +83,22 @@ def morlet_cwt_coefficients(
     freq_max=3000,
     n_scales=48
 ):
-    """
-    Continuous Wavelet Transform using PyWavelets.
+    
 
-    The CWT is calculated over approximately 50-3000 Hz using
-    logarithmically spaced target frequencies.
-
-    Returns
-    -------
-    coefficients : ndarray
-        Complex CWT coefficient matrix with shape
-        (n_scales, len(signal)).
-    freqs_hz : ndarray
-        Actual frequencies corresponding to the CWT scales.
-    """
-
-    # Complex Morlet wavelet.
-    # B = bandwidth parameter, C = center-frequency parameter.
+   
     wavelet = "cmor1.5-1.0"
 
-    # Target frequencies, logarithmically spaced.
+  
     target_freqs = np.geomspace(
         freq_min,
         freq_max,
         n_scales
     )
 
-    # PyWavelets converts scale to frequency according to
-    # the selected wavelet and sampling period.
+  
     central_frequency = pywt.central_frequency(wavelet)
 
-    # frequency = central_frequency / (scale * sampling_period)
+    
     scales = central_frequency * fs / target_freqs
 
     coefficients, frequencies = pywt.cwt(
@@ -135,12 +119,7 @@ def morlet_cwt_entropy(
     freq_max=3000,
     n_scales=48
 ):
-    """
-    CWT energy entropy.
-
-    Energy is summed over time for each wavelet scale,
-    normalized across scales, and converted to Shannon entropy.
-    """
+  
 
     coefficients, _ = morlet_cwt_coefficients(
         signal,
