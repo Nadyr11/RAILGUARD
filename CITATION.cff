@@ -1,0 +1,30 @@
+cff-version: 1.2.0
+message: "If you use this software or dataset, please cite the repository and the accompanying paper."
+type: software
+title: "RailGuard: Railway Wheel-Flat Vibration Simulation and Feature Analysis"
+version: 1.0.0
+date-released: 2026-09-05
+authors:
+  - family-names: Nadyr
+    given-names: Valiollakh
+    affiliation: "Nazarbayev Intellectual School of Science and Mathematics, Nauryzbay District, Almaty, Kazakhstan"
+license: MIT
+keywords:
+  - railway wheel flat
+  - vibration analysis
+  - Hertzian contact
+  - Monte Carlo simulation
+  - condition monitoring
+  - PyWavelets
+abstract: >-
+  RailGuard is a reproducible simulation-only study of railway wheel-flat
+  vibration using a two-degree-of-freedom wheel-bogie model, Monte Carlo
+  parameter variation, and time-, frequency-, and time-frequency-domain
+  features.
+preferred-citation:
+  type: article
+  title: "RailGuard: Physics-Based Simulation and Experimental Design for Railway Wheel-Flat Detection Using Vibration Analysis"
+  authors:
+    - family-names: Nadyr
+      given-names: Valiollakh
+  year: 2026

@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="500" viewBox="0 0 1400 500">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#5b6573"/>
+    </marker>
+    <style>
+      .box { fill:#f2f7fb; stroke:#184e77; stroke-width:3; rx:15; }
+      .sensor { fill:#fafafa; stroke:#5b6573; stroke-width:2.5; rx:15; }
+      .label { font-family:Arial,sans-serif; font-size:25px; text-anchor:middle; fill:#1f2933; }
+      .small { font-family:Arial,sans-serif; font-size:20px; text-anchor:middle; fill:#5b6573; }
+      .line { stroke:#5b6573; stroke-width:3; fill:none; marker-end:url(#arrow); }
+      .plain { stroke:#5b6573; stroke-width:3; fill:none; }
+    </style>
+  </defs>
+  <rect x="35" y="190" width="190" height="85" class="box"/>
+  <text x="130" y="242" class="label">DC gear motor</text>
+  <rect x="300" y="190" width="190" height="85" class="box"/>
+  <text x="395" y="242" class="label">Driven roller</text>
+  <rect x="300" y="45" width="190" height="85" class="box"/>
+  <text x="395" y="82" class="label"><tspan x="395">Interchangeable</tspan><tspan x="395" dy="30">test wheel</tspan></text>
+  <rect x="570" y="35" width="180" height="95" class="sensor"/>
+  <text x="660" y="75" class="label"><tspan x="660">ADXL355</tspan><tspan x="660" dy="30">accelerometer</tspan></text>
+  <rect x="570" y="190" width="180" height="85" class="sensor"/>
+  <text x="660" y="225" class="label"><tspan x="660">Spring and</tspan><tspan x="660" dy="30">load cell</tspan></text>
+  <rect x="300" y="350" width="190" height="75" class="sensor"/>
+  <text x="395" y="397" class="label">Hall sensor</text>
+  <rect x="900" y="175" width="300" height="115" class="box"/>
+  <text x="1050" y="220" class="label"><tspan x="1050">Raspberry Pi 5</tspan><tspan x="1050" dy="32">logging and processing</tspan></text>
+  <path d="M225 232 L300 232" class="line"/>
+  <text x="262" y="215" class="small">drive</text>
+  <path d="M395 190 L395 130" class="line"/>
+  <text x="445" y="165" class="small">contact</text>
+  <path d="M490 87 L570 82" class="plain"/>
+  <path d="M490 87 C530 120 535 200 570 232" class="plain"/>
+  <path d="M395 275 L395 350" class="plain"/>
+  <path d="M750 82 C820 82 820 195 900 210" class="line"/>
+  <path d="M750 232 L900 232" class="line"/>
+  <path d="M490 388 C760 388 760 270 900 255" class="line"/>
+  <text x="700" y="475" class="small">Conceptual layout — not to scale</text>
+</svg>
