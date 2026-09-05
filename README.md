@@ -119,7 +119,7 @@ The manuscript may also be subject to the journal's publication terms. Third-par
 
 ## AI-use disclosure
 
-AI-assisted tools were used to help debug code, edit text, and refine figure presentation. All modelling choices, generated outputs, numerical results, citations, and final repository contents were reviewed and approved by the author.
+AI-assisted tools were used to help debug code and refine figure presentation. All modelling choices, generated outputs, numerical results, citations, and final repository contents were reviewed and approved by the author.
 
 ## Citation
 
